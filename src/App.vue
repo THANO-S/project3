@@ -21,14 +21,18 @@
 
 
     <section class="contactlist">
-
+      <div class="savedCon">
+        <h2 class="listTitle">Saved Contacts</h2>
+        <ul>
+          <li v-for ="(contact, index) in contacts" :key="index">
+            {{ contact.name }} ...... {{ contact.num }}
+            <button class = "close" @click = "removeContact(index)">X</button>
+          </li>
+        </ul>
+      </div>
     </section>
 
-
-
-
   </main>
-
 
 </template>
 
@@ -54,6 +58,10 @@ const addC = () => {
 
   newConName.value = ''
   newConNum.value = ''
+}
+
+function removeContact(index){
+  contacts.value.splice(index, 1);
 }
 
 </script>
