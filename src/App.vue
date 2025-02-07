@@ -5,7 +5,7 @@
 
     <section class="greeting">
       <h2 class="title">
-        <input type="text" placeholder="Enter Your Name" v-model="name">'s Contact List
+        Contact List
       </h2>
     </section>
 
@@ -15,7 +15,7 @@
       <form @submit.prevent="addC">
         <input type="text" placeholder="Enter Contact Name" v-model="newConName">
         <input type="text" placeholder="Enter Contact Number" v-model="newConNum">
-        <input type="submit" value="Add Contact"/>
+        <button id="addbutt" type="submit">Add Contact</button>
       </form>
     </section>
 
@@ -26,7 +26,7 @@
         <ul>
           <li v-for ="(contact, index) in contacts" :key="index">
             {{ contact.name }} ...... {{ contact.num }}
-            <button class = "close" @click = "removeContact(index)">X</button>
+            <button class = "close" @click = "removeContact(index)">DELETE</button>
           </li>
         </ul>
       </div>
@@ -37,12 +37,12 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted, watch} from 'vue'
 
-const name =ref('');
+
 const newConName=ref('');
 const newConNum=ref('');
-//array to store contacts
+
 const contacts=ref([]);
 
 const addC = () => {
@@ -63,6 +63,15 @@ const addC = () => {
 function removeContact(index){
   contacts.value.splice(index, 1);
 }
+
+onMounted( () =>{
+  contacts.value = JSON.parse(localStorage.getItem('contacts')) || []
+})
+
+watch(contacts, (newVal) => {
+  localStorage.setItem('contacts',JSON.stringify(newVal))
+},{deep: true})
+
 
 </script>
 

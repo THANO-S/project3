@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -76,4 +76,79 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}*/
+
+* {
+	font-family: 'montserrat', sans-serif;
+}
+
+.app {
+  height:100vh;
+  background:#FFF9E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center top;
+  align-items: center;
+}
+
+
+.greeting .title {
+  font-size: 5em;
+  color:greenyellow;
+  margin-bottom: 0.5em;
+  text-align: center;
+  -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 3px;
+}
+
+.create-contactlist h3{
+  font-size:3em;
+  text-align:center;
+}
+
+.create-contactlist {
+  margin-bottom: 20px;
+}
+
+.create-contactlist input {
+  padding: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size:2em;
+}
+
+#addbutt {
+  font-size:1em;
+  color:White;
+  background:green
+}
+#addbutt :hover{
+  cursor: pointer;
+  color:green;
+  background:white;
+}
+
+.contactlist h2 {
+  font-size:2em;
+  text-align:center
+  
+}
+.contactlist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contactlist li {
+  font-size:1.3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 8px;
+}
+
+.close {
+  margin-left:15px;
+  background-color: red;
+  color:white;
 }
